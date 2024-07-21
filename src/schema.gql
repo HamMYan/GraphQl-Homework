@@ -1,0 +1,110 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Review {
+  id: ID!
+  text: String!
+  rate: Float!
+  user: User!
+  products: Product!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  count: Float!
+  user: User!
+  review: Review!
+}
+
+type User {
+  """User id"""
+  id: ID!
+
+  """User name"""
+  name: String!
+
+  """User Surname"""
+  surname: String!
+
+  """User Email"""
+  email: String!
+
+  """User Age"""
+  age: Float!
+  products: Product!
+  review: Review!
+}
+
+type Query {
+  user(id: Int!): User!
+  product(id: Int!): Product!
+  review(id: Int!): Review!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: Int!): Product!
+  createReview(createReviewInput: CreateReviewInput!): Review!
+  updateReview(updateReviewInput: UpdateReviewInput!): Review!
+  removeReview(id: Int!): Review!
+}
+
+input CreateUserInput {
+  """User name"""
+  name: String!
+
+  """User Surname"""
+  surname: String!
+
+  """User Email"""
+  email: String!
+
+  """User Age"""
+  age: Float!
+}
+
+input UpdateUserInput {
+  """User name"""
+  name: String
+
+  """User Surname"""
+  surname: String
+
+  """User Email"""
+  email: String
+
+  """User Age"""
+  age: Float
+}
+
+input CreateProductInput {
+  name: String!
+  description: String!
+  price: Float!
+  count: Float!
+}
+
+input UpdateProductInput {
+  name: String
+  description: String
+  price: Float
+  count: Float
+}
+
+input CreateReviewInput {
+  text: String!
+  rate: Float!
+}
+
+input UpdateReviewInput {
+  text: String
+  rate: Float
+}
