@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { ReviewModule } from './review/review.module';
@@ -23,7 +22,8 @@ import { Review } from './review/entities/review.entity';
       port: 3306,
       username: 'root',
       password: '',
-      database: 'graphql',
+      database: 'gql_homework',
+      entities:[User,Product,Review],
       synchronize: true
     }),
     UserModule,

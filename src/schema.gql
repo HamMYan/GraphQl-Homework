@@ -40,9 +40,12 @@ type User {
 }
 
 type Query {
-  user(id: Int!): User!
-  product(id: Int!): Product!
-  review(id: Int!): Review!
+  user: [User!]!
+  userId(id: Int!): User!
+  product: [Product!]!
+  productId(id: Int!): Product!
+  review: [Review!]!
+  reviewId(id: Int!): Review!
 }
 
 type Mutation {
@@ -72,17 +75,20 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
+  """User Id"""
+  id: Float!
+
   """User name"""
-  name: String
+  name: String!
 
   """User Surname"""
-  surname: String
+  surname: String!
 
   """User Email"""
-  email: String
+  email: String!
 
   """User Age"""
-  age: Float
+  age: Float!
 }
 
 input CreateProductInput {
@@ -90,21 +96,26 @@ input CreateProductInput {
   description: String!
   price: Float!
   count: Float!
+  userId: Float!
 }
 
 input UpdateProductInput {
-  name: String
-  description: String
-  price: Float
-  count: Float
+  id: Float!
+  name: String!
+  description: String!
+  price: Float!
+  count: Float!
 }
 
 input CreateReviewInput {
   text: String!
   rate: Float!
+  productsId: Float!
+  userId: Float!
 }
 
 input UpdateReviewInput {
-  text: String
-  rate: Float
+  id: Float!
+  text: String!
+  rate: Float!
 }

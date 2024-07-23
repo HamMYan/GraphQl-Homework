@@ -18,14 +18,14 @@ export class ReviewResolver {
     return this.reviewService.findAll();
   }
 
-  @Query(() => Review, { name: 'review' })
+  @Query(() => Review, { name: 'reviewId' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.reviewService.findOne(id);
   }
 
   @Mutation(() => Review)
   updateReview(@Args('updateReviewInput') updateReviewInput: UpdateReviewInput) {
-    // return this.reviewService.update(updateReviewInput.id, updateReviewInput);
+    return this.reviewService.update(updateReviewInput.id, updateReviewInput);
   }
 
   @Mutation(() => Review)

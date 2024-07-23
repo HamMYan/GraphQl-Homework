@@ -18,14 +18,14 @@ export class ProductResolver {
     return this.productService.findAll();
   }
 
-  @Query(() => Product, { name: 'product' })
+  @Query(() => Product, { name: 'productId' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.productService.findOne(id);
   }
 
   @Mutation(() => Product)
   updateProduct(@Args('updateProductInput') updateProductInput: UpdateProductInput) {
-    // return this.productService.update(updateProductInput.id, updateProductInput);
+    return this.productService.update(updateProductInput.id, updateProductInput);
   }
 
   @Mutation(() => Product)
